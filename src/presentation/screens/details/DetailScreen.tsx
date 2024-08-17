@@ -1,12 +1,32 @@
+import { RootStackParams } from "@/App";
+import MovieDetails from "@/presentation/components/movie/MovieDetails";
+import MovieHeader from "@/presentation/components/movie/MovieHeader";
+import useMovie from "@/presentation/hooks/useMovie";
+import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
-const DetailScreen = () => {
-    return(
-        <View>
-            <Text>Detail Screen</Text>
-        </View>
-    )
+interface DetailScreenProps
+  extends StackScreenProps<RootStackParams, "Details"> {}
+
+const DetailScreen = ({ route }: DetailScreenProps) => {
+  const { movieId } = route.params;
+  const { isLoading, movie } = useMovie(movieId);
+
+  if (isLoading) {
+    return <Text>Cargando...</Text>;
+  }
+
+  return (
+    <ScrollView>
+      <MovieHeader
+        originalTitle={movie!.originalTitle}
+        title={movie!.title}
+        poster={movie!.poster}
+      />
+      <MovieDetails movie={movie!} />
+    </ScrollView>
+  );
 };
 
 export default DetailScreen;
