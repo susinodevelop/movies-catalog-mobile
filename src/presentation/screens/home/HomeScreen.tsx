@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 const HomeScreen = () => {
   const { top } = useSafeAreaInsets();
 
-  const { isLoading, nowPlaying, popular, topRated, upcoming } = useMovies();
+  const { isLoading, nowPlaying, popular, topRated, upcoming, popularNextPage } = useMovies();
 
   if (isLoading) {
     return <Text>Cargando...</Text>;
@@ -18,7 +18,7 @@ const HomeScreen = () => {
     <ScrollView>
       <View style={{ marginTop: top + 20, paddingBottom: 30 }}>
         <PosterCarrousel movies={nowPlaying} />
-        <HorizontalCarrousel movies={popular} title="Populares" />
+        <HorizontalCarrousel movies={popular} title="Populares" loadNextPage={popularNextPage}/>
         <HorizontalCarrousel movies={topRated} title="Mejor Calificadas" />
         <HorizontalCarrousel movies={upcoming} title="Próximamente" />
       </View>

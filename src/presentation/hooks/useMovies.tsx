@@ -6,6 +6,11 @@ import { moviesTopRatedUseCase } from "@/core/use-cases/movies/top-rated.use-cas
 import { moviesUpcomingUseCase } from "@/core/use-cases/movies/upcoming.use-case";
 import { useEffect, useState } from "react";
 
+let nowPlayingPageNumber = 1;
+let popularPageNumber = 1;
+let topRatedPageNumber = 1;
+let upcomingPageNumber = 1;
+
 export const useMovies = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [nowPlaying, setNowPlaying] = useState<Movie[]>([]);
@@ -45,5 +50,37 @@ export const useMovies = () => {
     popular,
     topRated,
     upcoming,
+
+    nowPlayingNextPage: async () => {
+      nowPlayingPageNumber++;
+      const nowPlayingMovies = await moviesNowPlayingUseCase(movieDBFetcher, {
+        page: nowPlayingPageNumber,
+      });
+      setNowPlaying((prev) => [...prev, ...nowPlayingMovies]);
+    },
+
+    popularNextPage: async () => {
+      popularPageNumber++;
+      const popularMovies = await moviesPopularUseCase(movieDBFetcher, {
+        page: popularPageNumber,
+      });
+      setPopular((prev) => [...prev, ...popularMovies]);
+    },
+
+    topRatedNextPage: async () => {
+      topRatedPageNumber++;
+      const topRatedMovies = await moviesTopRatedUseCase(movieDBFetcher, {
+        page: topRatedPageNumber,
+      });
+      setNowPlaying((prev) => [...prev, ...topRatedMovies]);
+    },
+
+    upcomingNextPage: async () => {
+      upcomingPageNumber++;
+      const upcomingMovies = await moviesUpcomingUseCase(movieDBFetcher, {
+        page: upcomingPageNumber,
+      });
+      setNowPlaying((prev) => [...prev, ...upcomingMovies]);
+    },
   };
 };
