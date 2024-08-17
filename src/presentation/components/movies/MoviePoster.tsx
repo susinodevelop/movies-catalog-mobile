@@ -23,17 +23,14 @@ const MoviePoster = ({
       style={({ pressed }) => ({
         width,
         height,
-        marginHorizontal: 10,
+        marginHorizontal: 4,
         paddingBottom: 20,
-        paddingHorizontal: 10,
+        paddingHorizontal: 7,
         opacity: pressed ? 0.9 : 1,
       })}
     >
       <View style={styles.imageContainer}>
-        <Image
-          source={{ uri: movie.poster }}
-          style={{ ...styles.image, width, height }}
-        />
+        <Image source={{ uri: movie.poster }} style={styles.image} />
       </View>
     </Pressable>
   );
