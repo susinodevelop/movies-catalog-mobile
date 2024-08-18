@@ -39,6 +39,8 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 
    > **Nota:** Puedes obtener tu API Key registrándote en [The Movie Database (TMDb)](https://www.themoviedb.org/) y creando un proyecto de API.
 
+   > **Nota:** Añadir también la api-key en el eas.json si se quiere hacer la build del proyecto.
+
 4. Ejecuta la aplicación:
 
    ```bash
