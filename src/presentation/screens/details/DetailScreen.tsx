@@ -11,7 +11,7 @@ interface DetailScreenProps
 
 const DetailScreen = ({ route }: DetailScreenProps) => {
   const { movieId } = route.params;
-  const { isLoading, movie } = useMovie(movieId);
+  const { isLoading, movie, cast } = useMovie(movieId);
 
   if (isLoading) {
     return <Text>Cargando...</Text>;
@@ -24,7 +24,7 @@ const DetailScreen = ({ route }: DetailScreenProps) => {
         title={movie!.title}
         poster={movie!.poster}
       />
-      <MovieDetails movie={movie!} />
+      <MovieDetails movie={movie!} cast={cast!} />
     </ScrollView>
   );
 };

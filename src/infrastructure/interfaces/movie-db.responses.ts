@@ -117,3 +117,26 @@ export interface SpokenLanguage {
     iso_639_1:    string;
     name:         string;
 }
+
+export interface MovieDBCastResponse {
+    id:   number;
+    cast: MovieDbCast[];
+    crew: MovieDbCast[];
+}
+
+export interface MovieDbCast {
+    adult:                boolean;
+    gender:               number;
+    id:                   number;
+    known_for_department: string;
+    name:                 string;
+    original_name:        string;
+    popularity:           number;
+    profile_path:         null | string;
+    cast_id?:             number;
+    character?:           string;
+    credit_id:            string;
+    order?:               number;
+    department?:          string;
+    job?:                 string;
+}
