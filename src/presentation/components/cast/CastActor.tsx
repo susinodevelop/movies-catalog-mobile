@@ -13,8 +13,12 @@ const CastActor = ({ actor }: CastActorProps) => {
         style={{ width: 100, height: 150, borderRadius: 10 }}
       />
       <View style={styles.actorInfo}>
-        <Text style={{ fontSize: 15, fontWeight: "bold" }}>{actor.name}</Text>
-        <Text style={{ fontSize: 12, opacity: 0.7 }}>{actor.character}</Text>
+        <Text style={{ ...styles.text, fontSize: 15, fontWeight: "bold" }}>
+          {actor.name}
+        </Text>
+        <Text style={{ ...styles.text, fontSize: 12, opacity: 0.7 }}>
+          {actor.character}
+        </Text>
       </View>
     </View>
   );
@@ -31,6 +35,9 @@ const styles = StyleSheet.create({
   actorInfo: {
     marginLeft: 10,
     marginTop: 4,
+  },
+  text: {
+    color: "white",
   },
 });
 

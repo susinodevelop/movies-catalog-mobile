@@ -5,7 +5,8 @@ import MovieHeader from "@/presentation/components/movie/MovieHeader";
 import useMovie from "@/presentation/hooks/useMovie";
 import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ImageBackground, ScrollView, StyleSheet } from "react-native";
+import BackgroundImage from "@images/home-background.jpg";
 
 interface DetailScreenProps
   extends StackScreenProps<RootStackParams, "Details"> {}
@@ -20,14 +21,23 @@ const DetailScreen = ({ route }: DetailScreenProps) => {
 
   return (
     <ScrollView>
-      <MovieHeader
-        originalTitle={movie!.originalTitle}
-        title={movie!.title}
-        poster={movie!.poster}
-      />
-      <MovieDetails movie={movie!} cast={cast!} />
+      <ImageBackground source={BackgroundImage} style={styles.background}>
+        <MovieHeader
+          originalTitle={movie!.originalTitle}
+          title={movie!.title}
+          poster={movie!.poster}
+        />
+        <MovieDetails movie={movie!} cast={cast!} />
+      </ImageBackground>
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+  },
+});
 
 export default DetailScreen;

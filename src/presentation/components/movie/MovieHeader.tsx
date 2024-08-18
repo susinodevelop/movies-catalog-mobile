@@ -66,15 +66,20 @@ const styles = StyleSheet.create({
 
   marginContainer: {
     marginHorizontal: 20,
-    marginTop: 20,
+    marginTop: 10,
   },
   subTitle: {
     fontSize: 16,
     opacity: 0.8,
+    color: "white",
   },
   title: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: "bold",
+    color: "white",
+    marginTop: 10,
+    marginBottom: 30,
+    textAlign: "center",
   },
   backButton: {
     position: "absolute",
@@ -82,6 +87,12 @@ const styles = StyleSheet.create({
     elevation: 9,
     top: 35,
     left: 10,
+    backgroundColor: "#2C2C2C",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 30,
+    borderColor: "black",
+    borderWidth: 2,
   },
   backButtonText: {
     color: "white",

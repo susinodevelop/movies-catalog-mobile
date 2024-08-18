@@ -54,6 +54,13 @@ const HorizontalCarrousel = ({
             fontWeight: 300,
             marginLeft: 10,
             marginBottom: 10,
+            color: "white",
+            textShadowColor: "white",
+            textShadowOffset: {
+              width: 1,
+              height: 1,
+            },
+            textShadowRadius: 20,
           }}
         >
           {title}
