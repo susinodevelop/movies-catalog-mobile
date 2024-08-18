@@ -6,14 +6,23 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "channel": "development"
+      "channel": "development",
+      "env": {
+        "THE_MOVIE_DB_API_KEY": ""
+      }
     },
     "preview": {
       "distribution": "internal",
-      "channel": "preview"
+      "channel": "preview",
+      "env": {
+        "THE_MOVIE_DB_API_KEY": ""
+      }
     },
     "production": {
-      "channel": "production"
+      "channel": "production",
+      "env": {
+        "THE_MOVIE_DB_API_KEY": ""
+      }
     }
   },
   "submit": {
