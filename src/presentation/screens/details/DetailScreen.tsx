@@ -1,4 +1,5 @@
 import { RootStackParams } from "@/App";
+import FullScreenLoader from "@/presentation/components/loaders/FullScreenLoader";
 import MovieDetails from "@/presentation/components/movie/MovieDetails";
 import MovieHeader from "@/presentation/components/movie/MovieHeader";
 import useMovie from "@/presentation/hooks/useMovie";
@@ -14,7 +15,7 @@ const DetailScreen = ({ route }: DetailScreenProps) => {
   const { isLoading, movie, cast } = useMovie(movieId);
 
   if (isLoading) {
-    return <Text>Cargando...</Text>;
+    return <FullScreenLoader />;
   }
 
   return (
